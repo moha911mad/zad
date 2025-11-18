@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+        <link rel="stylesheet" href="output.css">
+        <style>
+/* خلفية عامة */
+body {
+  background: #0a0a0a; /* أغمق من الأسود شوي */
+color: #ffffff;
+font-family: 'Cairo', sans-serif;
+}
+/* منع السكرول الأفقي */
+body {
+  overflow-x: hidden;
+}
+
+html, body {
+   
+    max-width: 100%;
+}
+/* قسم الخدمات الجديد */
+.service-content-box {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.service-content-box.active-content {
+    display: block;
+    opacity: 1;
+}
+
+/* صندوق الكود */
+.moveing-code {
+    color: #ffffff; 
+    font-weight: 700;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+    border: 2px solid #630d3c;
+    border-radius: 12px;
+    padding: 1rem;
+    /* Width & height removed so Tailwind responsive classes (w-*, h-*) control sizing */
+    overflow-y: auto; /* enable scrolling on small screens */
+ /* رمادي داكن بدل الأسود */
+
+    transform-style: preserve-3d;
+}
+  
+
+.parket {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  margin: 0 0.4rem;
+  border-radius: 12px;
+  background: rgba(99, 13, 60, 0.15); /* خلفية شبه شفافة */
+  border: 1px solid rgba(99, 13, 60, 0.6);
+  box-shadow: 0 0 15px rgba(99, 13, 60, 0.8),
+              0 0 25px rgba(0, 188, 212, 0.5); /* بلور مزدوج (بنفسجي + أزرق) */
+  color: #00bcd4; /* أزرق كهربائي ليتماشى مع النص */
+  font-size: 1.2em;
+  backdrop-filter: blur(6px); /* البلور الأساسي */
+}
+
+
+
+/* مؤشر الكتابة */
+.typing-line .cursor {
+    display: inline-block;
+    width: 0.6ch;
+    margin-left: 0.15rem;
+    color: #00bcd4;
+    opacity: 0.95;
+    animation: blink 900ms steps(1) infinite;
+}
+
+
+
+@keyframes blink { 50% { opacity: 0; } }
+.typing-line .typed { display: inline-block; }
+
+</style>
+
+        <script
+            src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+        <title>Zad Code</title>
+    </head>
+    <body class="bg-black text-white">
+        <!-- section-1 -->
+        <header class="relative  bg-[#000000] ">
+            <div class="line-grid-bg absolute inset-0 -z-10  "></div>
+            <nav
+                class="hidden md:flex md:items-center md:justify-between p-4 mx-9">
+                <a href="#" class="mr-7"><div class="logo ">
+                        <img src="../img/logo.webp" alt="logo" class="h-10">
+                    </div></a>
+                <div
+                    class="links flex-1 flex justify-end space-x-14 text-md  -translate-x-7 ">
+
+                    <a href="#"
+                        class="text-white hover:text-[#861953] transition-colors">اتصل
+                        بنا</a>
+                    <a href="#"
+                        class="text-white hover:text-[#861953] transition-colors">من
+                        نحن </a>
+                    <a href="#our-works"
+                        class="text-white hover:text-[#861953] transition-colors">أعمالنا</a>
+                    <a href="#services"
+                        class="text-white hover:text-[#861953] transition-colors scroll-smooth">خدماتنا</a>
+                    <a href="#home"
+                        class="text-white hover:text-[#861953] transition-colors">الرئيسية</a>
+
+                </div>
+
+            </div>
+        </nav>
+        <button type="button">
+
+            <div class=" md:hidden mr-4 absolute right-4 top-4">
+                <i
+                    class="fa fa-bars text-white text-2xl transition-transform duration-300 ease-in-out hover:scale-125 "></i>
+            </div>
+        </button>
+        <!-- mobile-menu -->
+        <div id="mobile-menu"
+            class="mobile-menu md:hidden flex flex-col items-end bg-[#121212]/90 backdrop-blur-sm p-6 space-y-6 absolute top-16 right-4 rounded-lg border border-[#630d3c]/60 shadow-lg z-20 ">
+            <a href="#home"
+                class="text-white hover:text-[#861953] transition-colors">الرئيسية</a>
+            <a href="#services"
+                class="text-white hover:text-[#861953] transition-colors scroll-smooth">خدماتنا</a>
+            <a href="#our-works"
+                class="text-white hover:text-[#861953] transition-colors">أعمالنا</a>
+                <a href="#"
+                class="text-white hover:text-[#861953] transition-colors">من
+                نحن </a>
+            <a href="#"
+                class="text-white hover:text-[#861953] transition-colors">اتصل
+                بنا</a>
+            
+
+        </div>
+    </header>
+    <div id="home" class="section-one scroll-mt-20">
+        <div class="text-center mx-auto mt-10 md:mt-4  mb-20 "><h2
+                class="text-4xl text-[#2196f3] ">
+                <div class="line-grid-bg absolute inset-0 -z-10"></div>
+                <span class="parket">{</span> Zad Code
+                <span class="parket">}</span></h2>
+            <p class="text-4xl pt-5">نبتكر لك حلولا رقمية تواكب طموحك</p>
+        </div>
+        <div
+            class="section-code w-[95%] max-w-5xl mx-auto flex justify-center items-center gap-3 md:items-center ">
+
+            <!-- الصندوق المتحرك -->
+            <div
+                class="moveing-code w-80 h-80 md:h-96 md:w-80 rounded-lg p-4  font-mono text-left overflow-hidden bg-[#12121252] hidden sm:block backdrop-blur-sm text-md">
+            </div>
+
+            <!-- صندوق النص -->
+            <div class="text-content w-80 h-80 md:h-96 md:w-80 ">
+                <div
+                    class="te-xt w-full h-full rounded-lg text-center border-2 border-solid border-[#630d3c] px-2 flex flex-col justify-start md:gap-y-20 bg-[#12121252] backdrop-blur-sm ">
+
+                    <p class="py-4 leading-10 text-md ">
+                        ابتكر - برمج <br>انطلق نحو آفاق رقمية جديدة<br>
+                        حلول برمجية مصممة خصيصًا لتلبية التحديات المعقدة،
+                        وتطبيقات عالية الأداء
+                    </p>
+
+                    <button type="button" id="button"
+                        class="mt-4 px-6 py-2 md:w-60 border-2 mx-auto border-[#630d3c] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#630d3c] hover:text-white hover:scale-105">
+                        <a href="#services" class="scroll-smooth">اكتشف
+                            خدماتنا</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="h-36 bg"></div>
+    <!-- section-2 -->
+    <!-- section-2: الخدمات الكاملة -->
+    <section id="services" class="relative py-20 scroll-mt-20">
+        <div class="line-grid-bg absolute inset-0 -z-10"></div>
+
+        <h2
+            class="text-3xl md:text-4xl font-bold text-[#2196f3] text-center mb-16 relative z-10">
+            خدمات احترافية على يد خبراء
+        </h2>
+
+        <!-- الأزرار مع السكرول والأسهم -->
+        <div class="relative flex justify-center mb-12 px-4 md:px-0 ">
+            <!-- السهم الأيسر (للموبايل فقط) -->
+            <button type="button" id="services-scroll-left"
+                class="absolute left-0 top-1/2 -translate-y-1/2 z-20 md:hidden bg-[#630d3c]/80 backdrop-blur-sm text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg opacity-50 hover:opacity-100 transition-all duration-300">
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+
+            <!-- Container الأزرار -->
+            <div id="services-tabs-container"
+                class="overflow-x-hidden md:overflow-visible scroll-smooth  md:px-0"
+                style="max-width: 100%;">
+                <div
+                    class="inline-flex  bg-[#1a1a2e]/80 backdrop-blur-sm p-1 rounded-2xl border border-[#630d3c]/30 gap-1">
+
+                    <button type="button"
+                        id="support-service-btn"
+                        class="service-tab-btn px-4 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-gray-300 hover:text-white transition-all duration-300 text-xs md:text-sm whitespace-nowrap flex-shrink-0">
+                        الدعم الفني
+                    </button>
+
+                    <button type="button"
+                        id="ai-service-btn"
+                        class="service-tab-btn px-4 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-gray-300 hover:text-white transition-all duration-300 text-xs md:text-sm whitespace-nowrap flex-shrink-0">
+                        الذكاء الاصطناعي
+                    </button>
+                    <button type="button"
+                        id="mobile-service-btn"
+                        class="service-tab-btn px-4 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-gray-300 hover:text-white transition-all duration-300 text-xs md:text-sm whitespace-nowrap flex-shrink-0">
+                        تطبيقات الجوال
+                    </button>
+                    <button type="button"
+                    
+                        id="web-service-btn"
+                        class="service-tab-btn active-service-tab px-4 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-white bg-gradient-to-l from-[#630d3c] to-[#861953] transition-all duration-300 text-xs md:text-sm whitespace-nowrap flex-shrink-0">
+                        برمجة المواقع
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- السهم الأيمن (للموبايل فقط) -->
+            <button type="button"  id="services-scroll-right"
+                class="absolute right-0 top-1/2 -translate-y-1/2 z-20 md:hidden bg-[#630d3c]/80 backdrop-blur-sm text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg opacity-50 hover:opacity-100 transition-all duration-300">
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+        </div>
+
+        <!-- المحتوى -->
+        <div class="services-content-wrapper w-11/12 max-w-4xl mx-auto">
+
+            <!-- 1. محتوى برمجة المواقع -->
+            <div id="web-service-content"
+                class="service-content-box active-content">
+                <div
+                    class="bg-[#0f1624]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-3xl p-8 md:p-12">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold mb-6 text-white text-right">
+                        نحن لا نصمم مواقع... نحن نبني تجارب رقمية
+                    </h3>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-8 text-base md:text-lg">
+                        في شركة برمجيات زاد كود سنحول فكرتك إلى تجربة رقمية
+                        نابضة بالحياة. نُصمّم مواقع إلكترونية تترك انطباعاً أول
+                        لا يُنسى، تجمع بين الجمال البصري والذكاء التقني.
+                    </p>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-10 text-base md:text-lg">
+                        سواء كنت تطلق مشروعك أو تطوره، نمتلك موقعاً متجاوباً،
+                        سريعاً، وآمناً. ذو خصائص ومميزات فريدة تُعبّر عن علامتك
+                        التجارية ويحقق أهدافك ويساعدك على النجاح.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                نضمن لك سرعة تحميل صفحات الموقع لأنها تُعتبر من
+                                أهم العوامل بقاء الزوار لفترات أطول وتحويلهم إلى
+                                عملاء
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                تحسين محركات البحث SEO لتصدر نتائج البحث وزيادة
+                                الظهور
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                نوفر لك أعلى معايير الأمان لحماية بيانات موقعك
+                                ضد أي محاولات اختراق
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. محتوى تطبيقات الجوال -->
+            <div id="mobile-service-content" class="service-content-box hidden">
+                <div
+                    class="bg-[#0f1624]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-3xl p-8 md:p-12">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold mb-6 text-white text-right">
+                        تطبيقات جوال ذكية لعالم متصل
+                    </h3>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-8 text-base md:text-lg">
+                        نطور تطبيقات جوال متقدمة تعمل على أنظمة iOS وAndroid
+                        بكفاءة عالية. نركز على تقديم تجربة مستخدم سلسة مع أداء
+                        استثنائي وتصميم عصري يواكب أحدث الاتجاهات.
+                    </p>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-10 text-base md:text-lg">
+                        من الفكرة إلى التطبيق النهائي، نحن معك في كل خطوة. نبني
+                        تطبيقات قوية وآمنة تحقق أهدافك التجارية وتلبي احتياجات
+                        عملائك.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                تطبيقات نتيف (Native) للأداء الأمثل والسرعة
+                                الفائقة
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                واجهات مستخدم سلسة وجذابة مع تجربة استخدام
+                                ممتازة
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                دعم فني مستمر وتحديثات دورية لضمان استمرارية
+                                العمل
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. محتوى الدعم الفني -->
+            <div id="support-service-content"
+                class="service-content-box hidden">
+                <div
+                    class="bg-[#0f1624]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-3xl p-8 md:p-12">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold mb-6 text-white text-right">
+                        دعم فني شامل وصيانة مستمرة
+                    </h3>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-8 text-base md:text-lg">
+                        نقدم خدمات صيانة ودعم فني متكاملة لضمان استمرارية عمل
+                        موقعك وتطبيقاتك بكفاءة عالية على مدار الساعة.
+                    </p>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-10 text-base md:text-lg">
+                        فريقنا جاهز دائماً لحل أي مشكلة تقنية، وتنفيذ التحديثات
+                        الضرورية، وضمان أمان بياناتك بشكل مستمر.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                صيانة دورية وحل المشكلات الطارئة على مدار الساعة
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                نسخ احتياطي منتظم وحماية البيانات من أي مخاطر
+                                محتملة
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                تحديثات أمنية وتطويرية مستمرة لمواكبة أحدث
+                                التقنيات
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. محتوى الذكاء الاصطناعي -->
+            <div id="ai-service-content" class="service-content-box hidden">
+                <div
+                    class="bg-[#0f1624]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-3xl p-8 md:p-12">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold mb-6 text-white text-right">
+                        حلول ذكاء اصطناعي متقدمة
+                    </h3>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-8 text-base md:text-lg">
+                        نطور حلول ذكاء اصطناعي مبتكرة لتحسين كفاءة أعمالك وتقديم
+                        تجارب مستخدم متقدمة تواكب التطور التكنولوجي.
+                    </p>
+                    <p
+                        class="text-gray-300 text-right leading-relaxed mb-10 text-base md:text-lg">
+                        من ChatBots الذكية إلى أنظمة التوصيات وتحليل البيانات،
+                        نساعدك على الاستفادة من قوة الذكاء الاصطناعي.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                شات بوت ذكي للدعم المباشر والتفاعل مع العملاء
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                تحليل البيانات وتوقع السلوك لاتخاذ قرارات أفضل
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3 flex-row-reverse">
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#630d3c]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i
+                                    class="fa-solid fa-check text-[#630d3c] text-sm"></i>
+                            </div>
+                            <p
+                                class="text-gray-200 text-right flex-1 text-base md:text-lg">
+                                أنظمة توصيات ذكية لتحسين تجربة المستخدم وزيادة
+                                المبيعات
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- section-3: أعمالنا مع سلايدر -->
+        <section class="py-20">
+            <h2 id="our-works"
+                class="text-3xl md:text-4xl font-bold text-[#2196f3] text-center mb-4">
+                أهم أعمالنا
+            </h2>
+
+            <!-- الأزرار -->
+            <div class="flex justify-center mt-10 mb-12">
+                <div
+                    class="inline-flex bg-gradient-to-l from-[#630d3c]/40 to-[#861953]/40 p-1 rounded-2xl">
+                    <button type="button" type="button"
+                        id="mobile-btn"
+                        class="works-tab-btn active-works-tab px-6 py-2 md:px-8 md:py-3 rounded-2xl font-semibold text-white bg-[#630d3c] transition-all duration-300">
+                        تطبيقات الموبايل
+                    </button>
+                    <button type="button"
+                        id="web-btn"
+                        class="works-tab-btn px-6 py-2 md:px-8 md:py-3 rounded-2xl font-semibold text-gray-300 hover:text-white transition-all duration-300">
+                        مواقع الويب
+                    </button>
+                </div>
+            </div>
+
+            <!-- السلايدر -->
+            <div
+                class="works-slider-wrapper relative w-full max-w-6xl mx-auto px-4">
+
+                <!-- قسم تطبيقات الموبايل -->
+                <div id="mobile-slider"
+                    class="slider-container active-slider overflow-hidden">
+                    <div
+                        class="slider-track flex transition-transform duration-500 ease-out"
+                        style="transform: translateX(0)">
+                        <!-- مشروع 1 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden ">
+                                    <a
+                                        href="https://play.google.com/store/apps/details?id=com.zadcode.swimming_app&hl=ar"
+                                        target="_blank"><img
+                                            src="../img/siran.png"
+                                            alt="تطبيق سيران"
+                                            class=" w-5/6 h-[26rem] mx-auto"></a>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">تطبيق
+                                    سيران</h3>
+                                <p class="text-gray-300 leading-relaxed">تطبيق
+                                    رحلات متكامل بأداء عالي وتجربة مستخدم سلسة
+                                    مع ميزات حجز وتتبع متطورة.</p>
+                                <a
+                                    href="https://play.google.com/store/apps/details?id=com.zadcode.swimming_app&hl=ar "
+                                    target="_blank "><button type="button"
+                                        class="rounded-lg border p-2 mt-4 hover:text-[#630d3c]  transition-all duration-300">إكتشف
+                                        أكثر</button></a>
+                            </div>
+                        </div>
+
+                        <!-- مشروع 2 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden ">
+                                    <img
+                                        src="../img/school.png"
+                                        alt="تطبيق مدرسة"
+                                        class=" w-5/6 h-[26rem] mx-auto">
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">تطبيق
+                                    مدرسة الأمراء</h3>
+                                <p
+                                    class="text-gray-300 leading-relaxed">
+                                    طور مهاراتك في القيادة مع تطبيق تعليمي سلس، يحتوي على اختبارات واقعية ودليل كامل للتقدم خطوة بخطوة
+                                </p>
+                                <button type="button"
+                                    class="rounded-lg border p-2 mt-4 hover:text-[#630d3c]  transition-all duration-300">إكتشف
+                                    أكثر</button>
+                            </div>
+                        </div>
+
+                        <!-- مشروع 3 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden ">
+                                    <a href="https://play.google.com/store/apps/details?id=com.zadcode.etqan_app&hl=ar" target="_blank"><img
+                                        src="../img/etkan.png"
+                                        alt="تطبيق اتقان"
+                                        class=" w-5/6 h-[26rem] mx-auto"></a>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">منصة
+                                    اتقان </h3>
+                                <p
+                                    class="text-gray-300 leading-relaxed">تطبيق توصيل سريع وموثوق يقدم تجربة سلسة مع تتبع الطلبات لحظة بلحظة وخيارات متعددة لتوصيل احتياجاتك بسهولة</p>
+                                <a href="https://play.google.com/store/apps/details?id=com.zadcode.etqan_app&hl=ar" target="_blank"><button type="button"
+                                    class="rounded-lg border p-2 mt-4 hover:text-[#630d3c]  transition-all duration-300">إكتشف
+                                    أكثر</button></a>
+                            </div>
+                        </div>
+                        <!-- مشروع 4 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden">
+                                    <a ><img src="/img/orama.png"
+                                            alt="شركة اورما"
+                                            class="  w-5/6 h-[26rem] mx-auto"></a>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">تطبيق
+                                    شركة اورما</h3>
+                                <p class="text-gray-300 leading-relaxed">تطبيق متجر إلكتروني متكامل يقدم تجربة تسوق سلسة، مع تصفح سريع، خيارات دفع متعددة، وتتبع الطلبات بسهولة.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- أزرار التنقل -->
+                    <button type="button"
+                        class="slider-btn prev-btn absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#630d3c] w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-10">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button type="button"
+                        class="slider-btn next-btn absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#630d3c] w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-10">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Dots -->
+                    <div class="dots-container flex justify-center gap-2 mt-4">
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-[#630d3c] transition-all duration-300"
+                            data-index="0"></button>
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                            data-index="1"></button>
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                            data-index="2"></button>
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                            data-index="3"></button>
+                    </div>
+                </div>
+
+                <!-- قسم مواقع الويب -->
+                <div id="web-slider" class="slider-container hidden">
+                    <div
+                        class="slider-track flex transition-transform duration-500 ease-out"
+                        style="transform: translateX(0)">
+                        <!-- موقع 1 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#630d3c]/20 to-[#2196f3]/20">
+                                    <div
+                                        class="w-full h-64 flex items-center justify-center">
+                                        <i
+                                            class="fa-solid fa-building text-6xl text-[#630d3c]"></i>
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">موقع
+                                    شركة عقارية</h3>
+                                <p class="text-gray-300 leading-relaxed">منصة
+                                    عقارية شاملة مع عرض تفاعلي للعقارات ونظام
+                                    بحث متقدم.</p>
+                            </div>
+                        </div>
+
+                        <!-- موقع 2 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#630d3c]/20 to-[#2196f3]/20">
+                                    <div
+                                        class="w-full h-64 flex items-center justify-center">
+                                        <i
+                                            class="fa-solid fa-cart-shopping text-6xl text-[#630d3c]"></i>
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">متجر
+                                    إلكتروني</h3>
+                                <p class="text-gray-300 leading-relaxed">موقع
+                                    تجارة إلكترونية متكامل مع إدارة مخزون وبوابة
+                                    دفع آمنة.</p>
+                            </div>
+                        </div>
+
+                        <!-- موقع 3 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#630d3c]/20 to-[#2196f3]/20">
+                                    <div
+                                        class="w-full h-64 flex items-center justify-center">
+                                        <i
+                                            class="fa-solid fa-hospital text-6xl text-[#630d3c]"></i>
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">منصة
+                                    طبية</h3>
+                                <p class="text-gray-300 leading-relaxed">نظام
+                                    حجز مواعيد طبية مع ملفات مرضى إلكترونية
+                                    آمنة.</p>
+                            </div>
+                        </div>
+
+                        <!-- موقع 4 -->
+                        <div
+                            class="slide min-w-full flex justify-center items-center px-4">
+                            <div
+                                class="project-card bg-[#121212]/50 backdrop-blur-sm border-2 border-[#630d3c]/40 rounded-2xl p-6 max-w-sm mx-auto text-center hover:border-[#630d3c]/70 transition-all duration-300">
+                                <div
+                                    class="image-wrapper mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#630d3c]/20 to-[#2196f3]/20">
+                                    <div
+                                        class="w-full h-64 flex items-center justify-center">
+                                        <i
+                                            class="fa-solid fa-newspaper text-6xl text-[#630d3c]"></i>
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold mb-3 text-white">موقع
+                                    إخباري</h3>
+                                <p class="text-gray-300 leading-relaxed">بوابة
+                                    أخبار عصرية مع نظام إدارة محتوى قوي
+                                    وسريع.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- أزرار التنقل -->
+                    <button type="button"
+                        class="slider-btn prev-btn absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#630d3c] w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-10">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button type="button"
+                        class="slider-btn next-btn absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#630d3c] w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-10">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Dots -->
+                    <div class="dots-container flex justify-center gap-2 mt-4">
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-[#630d3c] transition-all duration-300"
+                            data-index="0"></button>
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                            data-index="1"></button>
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                            data-index="2"></button>
+                        <button type="button"
+                            class="dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                            data-index="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+          
+// ==============================================
+// 1️⃣ TYPING ANIMATION
+// ==============================================
+const codeDiv = document.querySelector('.moveing-code');
+const codeLines = [
+    "function greet() {",
+    "    console.log('hello world');",
+    "}",
+    "let x = 10;",
+    "for (let i = 0; i < x; i++) {",
+    "    console.log(i);",
+    "}",
+    "const zadCode = 'Zad Code';"
+];
+
+let lineIndex = 0;
+
+function typeLine(line, callback) {
+    const p = document.createElement('p');
+    p.className = 'typing-line';
+    const typedSpan = document.createElement('span');
+    typedSpan.className = 'typed';
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    cursor.textContent = '|';
+    p.appendChild(typedSpan);
+    p.appendChild(cursor);
+    codeDiv.appendChild(p);
+    codeDiv.scrollTop = codeDiv.scrollHeight;
+
+    let charIndex = 0;
+    function typeChar() {
+        if (charIndex < line.length) {
+            typedSpan.textContent += line[charIndex];
+            charIndex++;
+            codeDiv.scrollTop = codeDiv.scrollHeight;
+            const speed = 10 + Math.random() * 15;
+            setTimeout(typeChar, speed);
+        } else {
+            let blinkCount = 0;
+            const blinkInterval = setInterval(() => {
+                cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+                blinkCount++;
+                if (blinkCount >= 4) {
+                    clearInterval(blinkInterval);
+                    cursor.style.display = 'none';
+                    if (callback) callback();
+                }
+            }, 150);
+        }
+    }
+    typeChar();
+}
+
+function startTypingLoop() {
+    if (!codeDiv) return;
+    codeDiv.innerHTML = '';
+    function next() {
+        typeLine(codeLines[lineIndex], function () {
+            lineIndex = (lineIndex + 1) % codeLines.length;
+            setTimeout(next, 200);
+        });
+    }
+    next();
+}
+startTypingLoop();
+
+// ==============================================
+// 2️⃣ BACKGROUND ANIMATION
+// ==============================================
+const bgDivs = document.querySelectorAll('.line-grid-bg');
+bgDivs.forEach(div => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    div.appendChild(canvas);
+    let width = canvas.width = div.offsetWidth;
+    let height = canvas.height = div.offsetHeight;
+
+    class Circle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = (Math.random() - 0.5) * 0.3;
+            this.speedY = (Math.random() - 0.5) * 0.3;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > width) this.speedX *= -1;
+            if (this.y < 0 || this.y > height) this.speedY *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(33, 150, 243, 0.3)';
+            ctx.fill();
+        }
+    }
+
+    const circles = Array(30).fill().map(() => new Circle());
+    const connectionDistance = 100;
+
+    function drawConnections(circle1, circle2, distance) {
+        const alpha = 1 - (distance / connectionDistance);
+        ctx.beginPath();
+        ctx.moveTo(circle1.x, circle1.y);
+        ctx.lineTo(circle2.x, circle2.y);
+        const gradient = ctx.createLinearGradient(circle1.x, circle1.y, circle2.x, circle2.y);
+        gradient.addColorStop(0, `rgba(99, 13, 60, ${alpha * 0.2})`);
+        gradient.addColorStop(1, `rgba(33, 150, 243, ${alpha * 0.2})`);
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+    }
+
+    function animate() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, width, height);
+        circles.forEach(circle => {
+            circle.update();
+            circle.draw();
+        });
+        for(let i = 0; i < circles.length; i++) {
+            for(let j = i + 1; j < circles.length; j++) {
+                const dx = circles[i].x - circles[j].x;
+                const dy = circles[i].y - circles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if(distance < connectionDistance) {
+                    drawConnections(circles[i], circles[j], distance);
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+    window.addEventListener('resize', () => {
+        width = canvas.width = div.offsetWidth;
+        height = canvas.height = div.offsetHeight;
+    });
+});
+
+// ==============================================
+// 3️⃣ SERVICES SECTION
+// ==============================================
+(function() {
+    const serviceTabs = document.querySelectorAll('.service-tab-btn');
+    const serviceContents = document.querySelectorAll('.service-content-box');
+    
+    serviceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            serviceTabs.forEach(t => {
+                t.classList.remove('bg-gradient-to-l', 'from-[#630d3c]', 'to-[#861953]', 'text-white', 'active-service-tab');
+                t.classList.add('text-gray-300');
+            });
+            tab.classList.add('bg-gradient-to-l', 'from-[#630d3c]', 'to-[#861953]', 'text-white', 'active-service-tab');
+            tab.classList.remove('text-gray-300');
+            
+            let targetId = '';
+            switch(tab.id) {
+                case 'web-service-btn': targetId = 'web-service-content'; break;
+                case 'mobile-service-btn': targetId = 'mobile-service-content'; break;
+                case 'support-service-btn': targetId = 'support-service-content'; break;
+                case 'marketing-service-btn': targetId = 'marketing-service-content'; break;
+                case 'ai-service-btn': targetId = 'ai-service-content'; break;
+            }
+            
+            serviceContents.forEach(content => {
+                if (content.id === targetId) {
+                    content.classList.remove('hidden', 'opacity-0');
+                    content.classList.add('active-content', 'opacity-100');
+                } else {
+                    content.classList.add('hidden', 'opacity-0');
+                    content.classList.remove('active-content', 'opacity-100');
+                }
+            });
+        });
+    });
+    
+    const scrollContainer = document.getElementById('services-tabs-container');
+    const scrollLeftBtn = document.getElementById('services-scroll-left');
+    const scrollRightBtn = document.getElementById('services-scroll-right');
+    
+    if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+        scrollLeftBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
+        });
+        scrollRightBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
+        });
+        
+        function updateArrows() {
+            const isAtStart = scrollContainer.scrollLeft <= 10;
+            const isAtEnd = scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth - 10);
+            scrollLeftBtn.style.opacity = isAtStart ? '0.2' : '0.5';
+            scrollLeftBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+            scrollRightBtn.style.opacity = isAtEnd ? '0.2' : '0.5';
+            scrollRightBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+        }
+        scrollContainer.addEventListener('scroll', updateArrows);
+        updateArrows();
+    }
+})();
+
+// ==============================================
+// 4️⃣ MOBILE MENU
+// ==============================================
+(function(){
+    const toggleBtn = document.querySelector('button > .md\\:hidden')?.parentElement || document.querySelector('button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!toggleBtn || !mobileMenu) return;
+
+    toggleBtn.setAttribute('aria-controls', 'mobile-menu');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+
+    function setOpen(open) {
+        if (open) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('block');
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.remove('block');
+            mobileMenu.classList.add('hidden');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.documentElement.style.overflow = '';
+        }
+    }
+
+    function handleResize() {
+        if (window.innerWidth >= 768) {
+            setOpen(false);
+        } else {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.classList.contains('block')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+        setOpen(!isOpen);
+    });
+    document.addEventListener('click', (e) => {
+        const isClickInside = mobileMenu.contains(e.target) || toggleBtn.contains(e.target);
+        if (!isClickInside && toggleBtn.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+        }
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+        }
+    });
+})();
+    
+
+/// ==============================================
+// WORKS SECTION ONLY (Tabs + Looping Sliders)
+// ==============================================
+(function () {
+  const worksTabs = Array.from(document.querySelectorAll('.works-tab-btn'));
+  const sliders = {
+    mobile: document.getElementById('mobile-slider'),
+    web: document.getElementById('web-slider'),
+  };
+  if (!worksTabs.length || !sliders.mobile || !sliders.web) return;
+
+  const wrapper = sliders.mobile.parentElement;
+  const state = { mobile: 0, web: 0 };
+  let isSwitching = false;
+
+  // Helpers
+  const trackOf = (sliderEl) => sliderEl.querySelector('.slider-track');
+  const slidesOf = (sliderEl) => Array.from(sliderEl.querySelectorAll('.slide'));
+  const dotsOf = (sliderEl) => Array.from(sliderEl.querySelectorAll('.dot'));
+
+  // Filter out empty slides (no .project-card or zero width)
+  function validSlides(sliderEl) {
+    return slidesOf(sliderEl).filter(sl => {
+      const hasCard = !!sl.querySelector('.project-card');
+      const hasContent = sl.textContent.trim().length > 0;
+      return hasCard && hasContent;
+    });
+  }
+
+  // Normalize index with wrap-around
+  function wrapIndex(idx, len) {
+    if (len === 0) return 0;
+    return ((idx % len) + len) % len;
+  }
+
+  // Update slider transform and dots
+  function updateSlider(key) {
+    const slider = sliders[key];
+    const slides = validSlides(slider);
+    const dots = dotsOf(slider);
+
+    // مزامنة النقاط بعد تصفية السلايدات
+    const maxIdx = Math.max(0, slides.length - 1);
+    state[key] = wrapIndex(state[key], slides.length);
+
+    const track = trackOf(slider);
+    track.style.transition = 'transform 350ms ease';
+    track.style.transform = `translateX(-${state[key] * 100}%)`;
+
+    // تحديث النقاط
+    dots.forEach((d, i) => {
+      const isActive = i === state[key];
+      d.classList.toggle('bg-[#630d3c]', isActive);
+      d.classList.toggle('bg-white/30', !isActive);
+      d.classList.toggle('hover:bg-white/50', !isActive);
+    });
+  }
+
+  // Navigation binders (prev/next + dots + touch)
+  function bindNav(key) {
+    const slider = sliders[key];
+    const prev = slider.querySelector('.prev-btn');
+    const next = slider.querySelector('.next-btn');
+
+    prev.addEventListener('click', () => {
+      const len = validSlides(slider).length;
+      state[key] = wrapIndex(state[key] - 1, len);
+      updateSlider(key);
+    });
+
+    next.addEventListener('click', () => {
+      const len = validSlides(slider).length;
+      state[key] = wrapIndex(state[key] + 1, len);
+      updateSlider(key);
+    });
+
+    dotsOf(slider).forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const len = validSlides(slider).length;
+        state[key] = wrapIndex(i, len);
+        updateSlider(key);
+      });
+    });
+
+    // Touch swipe
+    let startX = 0, dragging = false;
+    const track = trackOf(slider);
+
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      dragging = true;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      const dx = e.touches[0].clientX - startX;
+      if (Math.abs(dx) > 40) {
+        dragging = false;
+        const len = validSlides(slider).length;
+        state[key] = wrapIndex(state[key] + (dx < 0 ? 1 : -1), len);
+        updateSlider(key);
+      }
+    }, { passive: true });
+
+    track.addEventListener('touchend', () => { dragging = false; }, { passive: true });
+  }
+
+  // Fade helpers for tab switching
+  function fadeIn(el) {
+    return new Promise(resolve => {
+      const inner = trackOf(el);
+      el.classList.remove('hidden');
+      el.classList.add('active-slider');
+      inner.style.opacity = '0';
+      inner.style.transform = 'translateY(15px)';
+      inner.style.transition = 'opacity .35s ease, transform .35s ease';
+      requestAnimationFrame(() => {
+        inner.style.opacity = '1';
+        inner.style.transform = 'translateY(0)';
+      });
+      setTimeout(() => { inner.style.transition = ''; resolve(); }, 380);
+    });
+  }
+
+  function fadeOut(el) {
+    return new Promise(resolve => {
+      const inner = trackOf(el);
+      inner.style.opacity = '1';
+      inner.style.transform = 'translateY(0)';
+      inner.style.transition = 'opacity .28s ease, transform .28s ease';
+      requestAnimationFrame(() => {
+        inner.style.opacity = '0';
+        inner.style.transform = 'translateY(15px)';
+      });
+      setTimeout(() => {
+        inner.style.transition = '';
+        el.classList.remove('active-slider');
+        el.classList.add('hidden');
+        resolve();
+      }, 300);
+    });
+  }
+
+  // Switch between mobile/web sliders
+  async function switchWorksTab(tab) {
+    if (isSwitching) return;
+    isSwitching = true;
+
+    worksTabs.forEach(t => {
+      t.classList.remove('bg-[#630d3c]', 'text-white', 'active-works-tab');
+      t.classList.add('text-gray-300');
+    });
+    tab.classList.add('bg-[#630d3c]', 'text-white', 'active-works-tab');
+    tab.classList.remove('text-gray-300');
+
+    const targetKey = tab.id === 'mobile-btn' ? 'mobile' : 'web';
+    const toEl = sliders[targetKey];
+    const fromEl = document.querySelector('.slider-container.active-slider');
+
+    // Fix height during transition
+    const fixed = Math.max(fromEl?.offsetHeight || 0, toEl?.offsetHeight || 0, 40);
+    wrapper.style.height = fixed + 'px';
+    wrapper.style.transition = 'height 260ms linear';
+
+    if (fromEl && fromEl !== toEl) await fadeOut(fromEl);
+    await fadeIn(toEl);
+    updateSlider(targetKey);
+
+    setTimeout(() => {
+      wrapper.style.height = 'auto';
+      wrapper.style.transition = '';
+      isSwitching = false;
+    }, 140);
+  }
+
+  // Bind tab buttons
+  worksTabs.forEach(tab => tab.addEventListener('click', e => {
+    e.preventDefault();
+    switchWorksTab(tab);
+  }));
+
+  // Init
+  bindNav('mobile'); bindNav('web');
+  updateSlider('mobile'); updateSlider('web');
+
+  // Ensure visibility state
+  const activeStart = document.querySelector('.slider-container.active-slider') || sliders.mobile;
+  [sliders.mobile, sliders.web].forEach(sl => {
+    if (sl === activeStart) sl.classList.remove('hidden');
+    else { sl.classList.add('hidden'); sl.classList.remove('active-slider'); }
+  });
+})();
+
+        </script>
+
+    </body>
+</html>
